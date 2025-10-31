@@ -3,51 +3,59 @@
 export function Skills() {
   const skills = [
     {
-      category: "Languages",
-      items: ["Java", "Python", "C", "C++", "JavaScript", "TypeScript"],
-      gradient: "from-blue-500/20 to-blue-600/20",
-      borderGradient: "from-blue-500 to-blue-600",
+      name: "Frontend Development",
+      icon: "⚡",
+      items: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
     },
     {
-      category: "Frontend",
-      items: ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
-      gradient: "from-purple-500/20 to-pink-500/20",
-      borderGradient: "from-purple-500 to-pink-500",
+      name: "Backend Development",
+      icon: "🔧",
+      items: ["Node.js", "Express", "PostgreSQL", "MongoDB"],
     },
     {
-      category: "Backend & Tools",
-      items: ["Node.js", "Git", "REST APIs", "SQL", "Firebase"],
-      gradient: "from-teal-500/20 to-cyan-500/20",
-      borderGradient: "from-teal-500 to-cyan-500",
+      name: "Full Stack",
+      icon: "💻",
+      items: ["Next.js", "REST APIs", "Authentication", "Databases"],
+    },
+    {
+      name: "DevOps & Tools",
+      icon: "🚀",
+      items: ["Docker", "Git", "GitHub Actions", "Vercel"],
     },
   ]
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gradient-to-b from-slate-900/50 to-transparent">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Expertise</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 rounded-full"></div>
+    <section id="skills" className="py-16 px-4 bg-background">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
+            Skills
+          </h2>
+          <p className="text-sm text-muted-foreground">Core competencies and expertise</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {skills.map((skillGroup, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`group relative bg-gradient-to-br ${skillGroup.gradient} border border-slate-700/50 rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10`}
+              className="group relative bg-gradient-to-br from-purple-900/20 to-violet-900/20 border border-purple-500/30 rounded-lg p-5 hover:border-pink-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/5 group-hover:to-purple-500/5 rounded-xl transition-all duration-300"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/30 via-violet-500/20 to-pink-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-xl -z-10"></div>
 
-              <h3 className="relative text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">
-                {skillGroup.category}
-              </h3>
-              <div className="relative flex flex-wrap gap-2">
-                {skillGroup.items.map((skill, i) => (
+              <div className="mb-3 flex items-center gap-2">
+                <span className="text-2xl group-hover:scale-110 transition-transform">{skill.icon}</span>
+                <h3 className="text-sm font-semibold text-foreground group-hover:text-purple-300 transition-colors">
+                  {skill.name}
+                </h3>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                {skill.items.map((item, itemIdx) => (
                   <span
-                    key={i}
-                    className="px-3 py-1.5 bg-slate-800/50 border border-slate-700/50 rounded-full text-sm text-slate-300 hover:bg-slate-700/50 hover:border-blue-400/30 transition-all duration-200 backdrop-blur-sm"
+                    key={itemIdx}
+                    className="text-xs text-gray-400 group-hover:text-purple-200 transition-colors font-medium"
                   >
-                    {skill}
+                    • {item}
                   </span>
                 ))}
               </div>
